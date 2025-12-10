@@ -43,11 +43,11 @@ const Index = () => {
           {...contentAnimation}
         >
           <ScrollRevealCard delay={100}>
-            <ServiceCard title="Tráfego Pago" description="Gestão de tráfego estratégica com IA, desenvolvida para levar sua empresa a um novo nível de performance, escala e faturamento consistente." buttonText="AGENDAR REUNIÃO" variant="cyan" imageSrc={levixMkt} externalLink="https://form.respondi.app/EKUlJo3b" />
+            <ServiceCard title="Tráfego Pago" description="Gestão de tráfego estratégica com IA, desenvolvida para levar sua empresa a um novo nível de faturamento." buttonText="AGENDAR REUNIÃO" variant="cyan" imageSrc={levixMkt} externalLink="https://form.respondi.app/EKUlJo3b" />
           </ScrollRevealCard>
 
           <ScrollRevealCard delay={200}>
-            <ServiceCard title="Método GAP – Tráfego com IA" description="A virada de chave entre ser apenas mais um apertador de botão e se tornar um Gestor de Tráfego de Alta Performance com o uso inteligente de IA. Aqui você aprende a pensar como estrategista, dominar processos, gerar resultados consistentes e construir uma carreira sólida vivendo de gestão de tráfego." buttonText="EM BREVE" variant="cyan" imageSrc={metodoGap} showLock isLocked />
+            <ServiceCard title="Método GAP – Tráfego com IA" description="Se torne um especialista em tráfego com IA." buttonText="EM BREVE" variant="cyan" imageSrc={metodoGap} showLock isLocked />
           </ScrollRevealCard>
 
           <ScrollRevealCard delay={300}>
