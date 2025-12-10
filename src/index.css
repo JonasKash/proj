@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 270 25% 6%;
+    --foreground: 0 0% 100%;
+
+    --card: 270 30% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 270 30% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 270 100% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 270 30% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 10% 60%;
+
+    --accent: 155 80% 45%;
+    --accent-foreground: 220 20% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 100% 65%;
+    --input: 270 25% 20%;
+    --ring: 270 100% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 65%), hsl(290 100% 70%));
+    --gradient-accent: linear-gradient(135deg, hsl(155 80% 45%), hsl(165 90% 50%));
+    --gradient-card-border: linear-gradient(135deg, hsl(270 100% 65% / 0.6), hsl(290 100% 70% / 0.3));
+    --gradient-card-border-accent: linear-gradient(135deg, hsl(155 80% 45% / 0.6), hsl(165 90% 50% / 0.3));
+
+    /* Grid background */
+    --grid-color: hsl(270 25% 12%);
+
+    --sidebar-background: 270 30% 10%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 270 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 30% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 270 20% 20%;
+    --sidebar-ring: 270 100% 65%;
+
+    /* Responsive Variables - Desktop Default */
+    --padding-top: 80px;
+    --padding-bottom: 80px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+    --container-width: 100%;
+    --align-self: flex-start;
+    --flex-direction: row;
+    --image-width: 30%;
+    --image-min-width: 80px;
+    --image-max-width: 200px;
+    --text-align: left;
+    --title-size: 1.875rem;
+    --description-size: 0.875rem;
+    --card-scale: 1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+  }
+}
+
+/* Grid background pattern */
+.bg-grid {
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Glowing border effect - Purple */
+.glow-border-cyan {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.glow-border-cyan::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  border-radius: 20px;
+  margin: 0px;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-35deg, #937cff, transparent, transparent, #937cff);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Glowing border effect - Green */
+.glow-border-green {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.glow-border-green::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  border-radius: 20px;
+  margin: 0px;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-35deg, hsl(155 80% 45%), transparent, transparent, hsl(155 80% 45%));
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Blob Button Styles */
+.blob-button {
+  width: fit-content;
+  height: fit-content;
+}
+
+.blob-button .blob1 {
+  background: linear-gradient(135deg, hsl(270 100% 60%), hsl(290 100% 70%));
+  top: 50%;
+  left: 30%;
+}
+
+.blob-button .blob2 {
+  background: linear-gradient(135deg, hsl(280 100% 55%), hsl(300 100% 65%));
+  top: 50%;
+  left: 70%;
+}
+
+/* ============================================
+   Sistema de Responsividade Elementor-style
+   ============================================ */
+
+/* Classes de Visibilidade */
+.hidden-mobile {
+  display: none;
+}
+
+.hidden-tablet {
+  display: block;
+}
+
+.hidden-desktop {
+  display: block;
+}
+
+.hidden-widescreen {
+  display: block;
+}
+
+/* Responsive Container */
+.responsive-container {
+  display: flex;
+  flex-direction: var(--flex-direction);
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.responsive-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 1.5rem;
+  text-align: var(--text-align);
+  align-self: var(--align-self);
+}
+
+.responsive-image {
+  flex-shrink: 0;
+  width: var(--image-width);
+  min-width: var(--image-min-width);
+  max-width: var(--image-max-width);
+  height: 100%;
+}
+
+/* Mobile: max-width: 767px */
+@media (max-width: 767px) {
+  :root {
+    --padding-top: 40px;
+    --padding-bottom: 40px;
+    --padding-left: 12px;
+    --padding-right: 12px;
+    --container-width: 100%;
+    --align-self: center;
+    --flex-direction: row;
+    --image-width: 45%;
+    --image-min-width: 120px;
+    --image-max-width: 180px;
+    --text-align: left;
+    --title-size: 1rem;
+    --description-size: 0.75rem;
+    --card-scale: 1;
+  }
+
+  .responsive-content {
+    padding: 1rem;
+  }
+
+  .responsive-image {
+    min-height: 200px;
+  }
+
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .hidden-tablet {
+    display: block;
+  }
+
+  .hidden-desktop {
+    display: block;
+  }
+
+  .hidden-widescreen {
+    display: block;
+  }
+}
+
+/* Tablet: 768px - 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  :root {
+    --padding-top: 80px;
+    --padding-bottom: 80px;
+    --padding-left: 40px;
+    --padding-right: 40px;
+    --container-width: 90%;
+    --align-self: flex-start;
+    --flex-direction: row;
+    --image-width: 28%;
+    --image-min-width: 100px;
+    --image-max-width: 160px;
+    --text-align: left;
+    --title-size: 1.5rem;
+    --description-size: 0.875rem;
+  }
+
+  .hidden-mobile {
+    display: block;
+  }
+
+  .hidden-tablet {
+    display: none !important;
+  }
+
+  .hidden-desktop {
+    display: block;
+  }
+
+  .hidden-widescreen {
+    display: block;
+  }
+}
+
+/* Desktop: min-width: 1025px */
+@media (min-width: 1025px) {
+  :root {
+    --padding-top: 80px;
+    --padding-bottom: 80px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+    --container-width: 100%;
+    --align-self: flex-start;
+    --flex-direction: row;
+    --image-width: 30%;
+    --image-min-width: 80px;
+    --image-max-width: 200px;
+    --text-align: left;
+    --title-size: 3xl;
+    --description-size: sm;
+  }
+
+  .hidden-mobile {
+    display: block;
+  }
+
+  .hidden-tablet {
+    display: block;
+  }
+
+  .hidden-desktop {
+    display: none !important;
+  }
+
+  .hidden-widescreen {
+    display: block;
+  }
+}
+
+/* Widescreen: min-width: 2400px */
+@media (min-width: 2400px) {
+  :root {
+    --padding-top: 80px;
+    --padding-bottom: 80px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+    --container-width: 70%;
+    --align-self: flex-start;
+    --flex-direction: row;
+    --image-width: 30%;
+    --image-min-width: 100px;
+    --image-max-width: 250px;
+    --text-align: left;
+    --title-size: 3xl;
+    --description-size: sm;
+  }
+
+  .hidden-mobile {
+    display: block;
+  }
+
+  .hidden-tablet {
+    display: block;
+  }
+
+  .hidden-desktop {
+    display: block;
+  }
+
+  .hidden-widescreen {
+    display: none !important;
+  }
+}
